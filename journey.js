@@ -35227,7 +35227,7 @@ var phrases = {
   disconnect: ["Disconnect", "Desconectar", "D\xE9connecter", "Trennen"],
   walletNote: ["USDC \xB7 Algorand \xB7 Lute", "USDC \xB7 Algorand \xB7 Lute", "USDC \xB7 Algorand \xB7 Lute", "USDC \xB7 Algorand \xB7 Lute"],
   walletLink: ["Get Lute \u2197", "Conseguir Lute \u2197", "Obtenir Lute \u2197", "Lute herunterladen \u2197"],
-  chooseAccount: ["Choose your account:", "Elige tu cuenta:", "Choisissez votre compte :", "W\xE4hle dein Konto:"],
+  connectedAccount: ["Connected account", "Cuenta conectada", "Compte connecté", "Verbundenes Konto"],
   loading: ["Loading plans\u2026", "Cargando paquetes\u2026", "Chargement des forfaits\u2026", "Pakete werden geladen\u2026"],
   noPlans: ["No plans available for this destination.", "No hay paquetes disponibles para este destino.", "Aucun forfait disponible pour cette destination.", "F\xFCr dieses Reiseziel sind keine Pakete verf\xFCgbar."],
   days: ["days", "d\xEDas", "jours", "Tage"],
@@ -35277,7 +35277,7 @@ var phrases = {
   phoneUnlocked: ["I have confirmed that my phone is unlocked.", "He confirmado que mi m\xF3vil est\xE1 desbloqueado.", "J\u2019ai confirm\xE9 que mon t\xE9l\xE9phone est d\xE9bloqu\xE9.", "Ich habe best\xE4tigt, dass mein Handy entsperrt ist."],
   phoneDone: ["Both requirements confirmed", "Ambos requisitos confirmados", "Les deux crit\xE8res sont confirm\xE9s", "Beide Voraussetzungen best\xE4tigt"],
   confirmChecks: ["Confirm compatibility and accept the terms.", "Confirma la compatibilidad y acepta las condiciones.", "Confirmez la compatibilit\xE9 et acceptez les conditions.", "Best\xE4tige die Kompatibilit\xE4t und akzeptiere die Bedingungen."],
-  connectFirst: ["Connect your wallet and choose an account first.", "Conecta tu wallet y elige una cuenta primero.", "Connectez votre wallet et choisissez un compte.", "Verbinde zuerst deine Wallet und w\xE4hle ein Konto."],
+  connectFirst: ["Connect your wallet in Lute first.", "Conecta tu wallet en Lute primero.", "Connectez votre wallet dans Lute.", "Verbinde zuerst deine Wallet in Lute."],
   noAccount: ["No account was authorized.", "No se autoriz\xF3 ninguna cuenta.", "Aucun compte autoris\xE9.", "Kein Konto wurde autorisiert."],
   pendingExists: ["You already have a pending order for this plan. Resume it under My eSIMs.", "Ya tienes un pedido pendiente de este paquete. Contin\xFAalo en Mis eSIM.", "Une commande de ce forfait est d\xE9j\xE0 en cours. Reprenez-la dans Mes eSIM.", "F\xFCr dieses Paket ist bereits eine Bestellung offen. Setze sie unter Meine eSIMs fort."],
   working: ["Preparing your order\u2026", "Preparando tu pedido\u2026", "Pr\xE9paration de votre commande\u2026", "Bestellung wird vorbereitet\u2026"],
@@ -35323,6 +35323,8 @@ var phrases = {
   apiMissing: ["Set the API address in store-settings.js before publishing.", "Configura la direcci\xF3n de la API en store-settings.js antes de publicar.", "Configurez l\u2019adresse API dans store-settings.js avant publication.", "Trage vor der Ver\xF6ffentlichung die API-Adresse in store-settings.js ein."]
 };
 Object.assign(phrases, {"loadingStore": ["Loading destinations…", "Cargando destinos…", "Chargement des destinations…", "Reiseziele werden geladen…"], "wakingStore": ["Connecting to the store. The first visit may take a minute…", "Conectando con la tienda. La primera visita puede tardar un minuto…", "Connexion à la boutique. La première visite peut prendre une minute…", "Verbindung zum Shop. Der erste Aufruf kann eine Minute dauern…"], "storeUnavailable": ["We could not load the store. Please retry in a moment.", "No se ha podido cargar la tienda. Reintenta en unos instantes.", "Impossible de charger la boutique. Réessayez dans un instant.", "Der Shop konnte nicht geladen werden. Bitte versuche es gleich erneut."], "retry": ["Retry", "Reintentar", "Réessayer", "Erneut versuchen"], "walletOpening": ["Approve the connection in the Lute extension.", "Autoriza la conexión en la extensión de Lute.", "Autorisez la connexion dans l’extension Lute.", "Bestätige die Verbindung in der Lute-Erweiterung."], "walletConnecting": ["Connecting…", "Conectando…", "Connexion…", "Verbindung wird hergestellt…"], "walletUnavailable": ["Lute is not detected in this tab. Enable the extension for this website, unlock it and reload the page. Use Get Lute if it is not installed.", "No se detecta Lute en esta pestaña. Activa la extensión para esta web, desbloquéala y recarga la página. Usa Conseguir Lute si no está instalada.", "Lute n’est pas détecté dans cet onglet. Activez l’extension pour ce site, déverrouillez-la et rechargez la page. Utilisez Obtenir Lute si elle n’est pas installée.", "Lute wurde in diesem Tab nicht erkannt. Erlaube die Erweiterung für diese Website, entsperre sie und lade die Seite neu. Nutze Lute herunterladen, falls sie nicht installiert ist."], "walletTimeout": ["Lute did not respond. Open and unlock the extension, then reconnect.", "Lute no ha respondido. Abre y desbloquea la extensión y vuelve a conectar.", "Lute n’a pas répondu. Ouvrez et déverrouillez l’extension, puis reconnectez-vous.", "Lute hat nicht geantwortet. Öffne und entsperre die Erweiterung und verbinde sie erneut."], "walletRejected": ["Connection was not approved. Try again in Lute.", "No se ha autorizado la conexión. Vuelve a intentarlo en Lute.", "La connexion n’a pas été autorisée. Réessayez dans Lute.", "Die Verbindung wurde nicht bestätigt. Versuche es in Lute erneut."]});
+Object.assign(phrases, {"walletManyAccounts": ["Authorize a single account in Lute, then reconnect.", "Autoriza una sola cuenta en Lute y vuelve a conectar.", "Autorisez un seul compte dans Lute, puis reconnectez-vous.", "Autorisiere ein einzelnes Konto in Lute und verbinde dich erneut."]});
+Object.assign(phrases, {"apiTitle": ["Build with CryptoEsim", "Integra CryptoEsim", "Intégrez CryptoEsim", "CryptoEsim integrieren"], "apiIntro": ["Offer travel data in your app or let an agent buy an eSIM with USDC on Algorand. Start with the free catalog, then integrate the x402 checkout.", "Ofrece datos de viaje en tu aplicación o permite que un agente compre una eSIM con USDC en Algorand. Empieza por el catálogo gratuito y después integra el pago x402.", "Proposez des données de voyage dans votre application ou laissez un agent acheter une eSIM avec des USDC sur Algorand. Commencez par le catalogue gratuit, puis intégrez le paiement x402.", "Biete Reisedaten in deiner App an oder lass einen Agenten eine eSIM mit USDC auf Algorand kaufen. Beginne mit dem kostenlosen Katalog und integriere anschließend die x402-Zahlung."], "apiBase": ["API base URL", "URL base de la API", "URL de base de l’API", "API-Basis-URL"], "apiPublic": ["Public catalog · no API key", "Catálogo público · sin API key", "Catalogue public · sans clé API", "Öffentlicher Katalog · ohne API-Schlüssel"], "apiQuick": ["01 / Explore the catalog", "01 / Consulta el catálogo", "01 / Consultez le catalogue", "01 / Katalog abrufen"], "apiQuickText": ["Copy an example or run a live catalog request here. This only reads available packages and prices; it does not create an order or request a wallet signature.", "Copia un ejemplo o consulta aquí los paquetes y precios disponibles. Esta consulta solo lee el catálogo: no crea pedidos ni solicita firmas a la wallet.", "Copiez un exemple ou consultez ici les forfaits et prix disponibles. Cette requête lit uniquement le catalogue : elle ne crée aucune commande et ne demande aucune signature.", "Kopiere ein Beispiel oder rufe hier verfügbare Pakete und Preise ab. Die Abfrage liest nur den Katalog; sie erstellt keine Bestellung und fordert keine Wallet-Signatur an."], "apiCountry": ["Country · ISO code", "País · código ISO", "Pays · code ISO", "Land · ISO-Code"], "apiRun": ["Run catalog request", "Consultar catálogo", "Consulter le catalogue", "Katalog abfragen"], "apiRunning": ["Reading catalog…", "Consultando catálogo…", "Lecture du catalogue…", "Katalog wird geladen…"], "apiIdle": ["The response will appear here.", "La respuesta aparecerá aquí.", "La réponse apparaîtra ici.", "Die Antwort erscheint hier."], "apiCopy": ["Copy code", "Copiar código", "Copier le code", "Code kopieren"], "apiCopied": ["Copied", "Copiado", "Copié", "Kopiert"], "apiSelectCopy": ["Select the code and copy it manually.", "Selecciona el código y cópialo manualmente.", "Sélectionnez le code et copiez-le manuellement.", "Markiere den Code und kopiere ihn manuell."], "apiBadCountry": ["Enter a two-letter ISO country code, such as ES.", "Introduce un código ISO de país de dos letras, como ES.", "Saisissez un code pays ISO à deux lettres, comme ES.", "Gib einen zweistelligen ISO-Ländercode ein, z. B. ES."], "apiRequestError": ["The catalog could not be loaded. Try again.", "No se pudo cargar el catálogo. Vuelve a intentarlo.", "Le catalogue n’a pas pu être chargé. Réessayez.", "Der Katalog konnte nicht geladen werden. Versuche es erneut."], "apiQuote": ["02 / Create an unpaid quote", "02 / Crea un pedido sin pagar", "02 / Créez un devis sans paiement", "02 / Unbezahlte Bestellung anlegen"], "apiQuoteText": ["Use a plan.id from the catalog and its country. The JavaScript function below runs in your backend (Node.js 18+). Pass the customer’s actual compatibility and terms acceptance; neither is assumed.", "Usa un plan.id del catálogo y su país. La función JavaScript siguiente se ejecuta en tu backend (Node.js 18+). Debes pasar la confirmación real de compatibilidad y aceptación de condiciones del cliente.", "Utilisez un plan.id du catalogue et son pays. La fonction JavaScript ci-dessous s’exécute sur votre serveur (Node.js 18+). Transmettez les confirmations réelles du client pour la compatibilité et les conditions.", "Verwende eine plan.id aus dem Katalog und das zugehörige Land. Die folgende JavaScript-Funktion läuft auf deinem Server (Node.js 18+). Übergib die tatsächliche Bestätigung der Gerätekompatibilität und der Bedingungen durch den Kunden."], "apiIdentity": ["Before calling, generate and privately persist an order UUID, a recovery token (32 random bytes encoded as base64) and the exact request. Reuse them on retries. HTTP 402 is the expected quote response, not a failed payment. Read expires_ms before signing.", "Antes de llamar, genera y guarda de forma privada un UUID de pedido, un token de recuperación (32 bytes aleatorios en base64) y la petición exacta. Reutilízalos en los reintentos. HTTP 402 es la cotización esperada, no un pago fallido. Consulta expires_ms antes de firmar.", "Avant l’appel, générez et conservez en privé un UUID de commande, un jeton de récupération (32 octets aléatoires en base64) et la requête exacte. Réutilisez-les lors des nouvelles tentatives. HTTP 402 est la réponse de devis attendue. Vérifiez expires_ms avant de signer.", "Erzeuge und speichere vor dem Aufruf privat eine Bestell-UUID, einen Wiederherstellungstoken (32 zufällige Bytes als Base64) und die genaue Anfrage. Verwende sie bei Wiederholungen erneut. HTTP 402 ist die erwartete Angebotsantwort. Prüfe expires_ms vor dem Signieren."], "apiPay": ["03 / Sign, pay and retrieve", "03 / Firma, paga y recibe", "03 / Signez, payez et récupérez", "03 / Signieren, zahlen und abrufen"], "apiValidate": ["Decode PAYMENT-REQUIRED (base64 JSON). Check the resource URL, network, USDC asset, recipient, amount and expiry against your trusted configuration and spending limit. Mainnet USDC asset: 31566704; 6 decimals. The payer also needs ALGO for the network fee.", "Decodifica PAYMENT-REQUIRED (JSON en base64). Comprueba la URL del recurso, red, activo USDC, destinatario, importe y caducidad con tu configuración de confianza y límite de gasto. USDC en Mainnet: activo 31566704, 6 decimales. El pagador también necesita ALGO para la comisión de red.", "Décodez PAYMENT-REQUIRED (JSON en base64). Vérifiez l’URL, le réseau, l’actif USDC, le destinataire, le montant et l’expiration avec votre configuration de confiance et votre plafond. USDC Mainnet : actif 31566704, 6 décimales. Le payeur doit aussi disposer d’ALGO pour les frais réseau.", "Dekodiere PAYMENT-REQUIRED (Base64-JSON). Prüfe Ressourcen-URL, Netzwerk, USDC-Asset, Empfänger, Betrag und Ablauf anhand deiner vertrauenswürdigen Konfiguration und deines Ausgabenlimits. Mainnet-USDC: Asset 31566704, 6 Dezimalstellen. Der Zahler benötigt auch ALGO für die Netzwerkgebühr."], "apiSign": ["Have the customer wallet or authorized agent sign the Algorand transfer for this order. PAYMENT-SIGNATURE is the base64-encoded x402 v2 payment payload, not a transaction ID. It contains x402Version, resource, accepted, extensions and payload: { paymentGroup: [base64SignedTransaction], paymentIndex: 0 }. The signer must validate and sign the exact transfer; the code below only submits that already-signed payload.", "La wallet del cliente o un agente autorizado debe firmar la transferencia de Algorand de este pedido. PAYMENT-SIGNATURE es el payload de pago x402 v2 codificado en base64, no un ID de transacción. Incluye x402Version, resource, accepted, extensions y payload: { paymentGroup: [base64SignedTransaction], paymentIndex: 0 }. El firmante debe validar y firmar la transferencia exacta; el código siguiente solo envía ese payload ya firmado.", "Le wallet du client ou un agent autorisé doit signer le transfert Algorand de cette commande. PAYMENT-SIGNATURE est le payload de paiement x402 v2 encodé en base64, pas un ID de transaction. Il contient x402Version, resource, accepted, extensions et payload: { paymentGroup: [base64SignedTransaction], paymentIndex: 0 }. Le signataire doit valider le transfert exact ; le code ci-dessous transmet uniquement le payload déjà signé.", "Die Kunden-Wallet oder ein autorisierter Agent signiert die Algorand-Überweisung für diese Bestellung. PAYMENT-SIGNATURE ist die Base64-kodierte x402-v2-Zahlungs-Payload, keine Transaktions-ID. Sie enthält x402Version, resource, accepted, extensions und payload: { paymentGroup: [base64SignedTransaction], paymentIndex: 0 }. Der Signierer muss die genaue Überweisung prüfen; der folgende Code sendet nur die bereits signierte Payload."], "apiDelivery": ["A 202 response means processing: respect Retry-After and recover the same order with GET /api/orders/{id} or POST /api/orders/{id}/resume. Do not create a new payment on a timeout. Stop on needs_review, refund_required, refunding or refunded and contact support. A completed order includes delivery.activation_code, payment and the signed receipt.", "Una respuesta 202 indica procesamiento: respeta Retry-After y recupera el mismo pedido con GET /api/orders/{id} o POST /api/orders/{id}/resume. No crees otro pago por un timeout. Detén los reintentos ante needs_review, refund_required, refunding o refunded y contacta con soporte. Un pedido completed incluye delivery.activation_code, payment y el recibo firmado.", "Une réponse 202 indique un traitement en cours : respectez Retry-After et récupérez la même commande avec GET /api/orders/{id} ou POST /api/orders/{id}/resume. Ne créez pas un autre paiement après un délai dépassé. Arrêtez les tentatives pour needs_review, refund_required, refunding ou refunded et contactez le support. Une commande completed inclut delivery.activation_code, payment et le reçu signé.", "202 bedeutet Verarbeitung: Beachte Retry-After und rufe dieselbe Bestellung mit GET /api/orders/{id} oder POST /api/orders/{id}/resume ab. Erzeuge bei einem Timeout keine neue Zahlung. Bei needs_review, refund_required, refunding oder refunded Wiederholungen stoppen und Support kontaktieren. Eine Bestellung mit completed enthält delivery.activation_code, payment und den signierten Beleg."], "apiReceipt": ["Decode PAYMENT-RESPONSE and compare it with payment. Verify the Ed25519 receipt signature and request, plan, pricing, delivery and payment hashes using a previously trusted seller key from /.well-known/cryptoesim-key.json. Keep the order ID, token, signed payload and transaction ID in private storage.", "Decodifica PAYMENT-RESPONSE y compáralo con payment. Verifica la firma Ed25519 del recibo y los hashes de request, plan, pricing, delivery y payment con la clave del vendedor previamente validada de /.well-known/cryptoesim-key.json. Guarda el ID de pedido, token, payload firmado e ID de transacción de forma privada.", "Décodez PAYMENT-RESPONSE et comparez-le avec payment. Vérifiez la signature Ed25519 et les empreintes request, plan, pricing, delivery et payment avec une clé vendeur préalablement approuvée de /.well-known/cryptoesim-key.json. Conservez l’ID, le jeton, le payload signé et l’ID de transaction en privé.", "Dekodiere PAYMENT-RESPONSE und vergleiche es mit payment. Prüfe die Ed25519-Signatur und die Hashes von request, plan, pricing, delivery und payment mit einem zuvor vertrauenswürdig bestätigten Verkäuferschlüssel von /.well-known/cryptoesim-key.json. Speichere Bestell-ID, Token, signierte Payload und Transaktions-ID privat."], "apiEndpoints": ["Endpoint reference", "Operaciones disponibles", "Référence des endpoints", "Endpoint-Übersicht"], "apiConfig": ["Enabled countries and payment configuration", "Países habilitados y configuración de pago", "Pays disponibles et configuration du paiement", "Verfügbare Länder und Zahlungskonfiguration"], "apiCatalog": ["Plans and prices for a country", "Paquetes y precios de un país", "Forfaits et prix pour un pays", "Pakete und Preise für ein Land"], "apiNewOrder": ["Quote · returns 402, no charge", "Cotización · devuelve 402, sin cobro", "Devis · retourne 402, sans débit", "Angebot · liefert 402, keine Abbuchung"], "apiPayment": ["Submit a signed x402 payment", "Enviar un pago x402 firmado", "Envoyer un paiement x402 signé", "Signierte x402-Zahlung senden"], "apiOrder": ["Private order, delivery and receipt", "Pedido privado, entrega y recibo", "Commande privée, livraison et reçu", "Private Bestellung, Lieferung und Beleg"], "apiResume": ["Resume the same order", "Reanudar el mismo pedido", "Reprendre la même commande", "Dieselbe Bestellung fortsetzen"], "apiQr": ["Private installation QR · SVG", "QR privado de instalación · SVG", "QR privé d’installation · SVG", "Privater Installations-QR · SVG"], "apiUsage": ["Data usage reported by the provider", "Consumo comunicado por el proveedor", "Consommation indiquée par le fournisseur", "Vom Anbieter gemeldeter Datenverbrauch"], "apiTopups": ["Compatible top-up plans", "Paquetes de recarga compatibles", "Recharges compatibles", "Kompatible Aufladepakete"], "apiKey": ["Public receipt verification key", "Clave pública para verificar recibos", "Clé publique de vérification des reçus", "Öffentlicher Schlüssel zur Belegprüfung"], "apiIntegration": ["Integration notes", "Notas de integración", "Notes d’intégration", "Hinweise zur Integration"], "apiAuth": ["Order routes use Authorization: Bearer <recoveryToken>. Create quotes with Idempotency-Key and X-Recovery-Token. The token gives access to the eSIM; do not publish it or place it in URLs. eSIM Access credentials remain on the CryptoEsim server.", "Las rutas de pedido usan Authorization: Bearer <recoveryToken>. Crea cotizaciones con Idempotency-Key y X-Recovery-Token. El token da acceso a la eSIM: no lo publiques ni lo pongas en URLs. Las credenciales de eSIM Access permanecen en el servidor de CryptoEsim.", "Les routes de commande utilisent Authorization: Bearer <recoveryToken>. Créez les devis avec Idempotency-Key et X-Recovery-Token. Le jeton donne accès à l’eSIM : ne le publiez pas et ne le placez pas dans une URL. Les identifiants eSIM Access restent sur le serveur CryptoEsim.", "Bestellrouten verwenden Authorization: Bearer <recoveryToken>. Erstelle Angebote mit Idempotency-Key und X-Recovery-Token. Der Token gewährt Zugriff auf die eSIM: nicht veröffentlichen oder in URLs einsetzen. eSIM-Access-Zugangsdaten bleiben auf dem CryptoEsim-Server."], "apiCors": ["Call from your backend or agent. Direct browser requests from other websites are restricted by the current CORS configuration. No API key is required for the catalog. Keep private wallet keys on the signing device or agent, never send them to this API.", "Llama desde tu backend o agente. Las peticiones directas desde navegadores de otras webs están restringidas por la configuración CORS actual. El catálogo no necesita API key. Las claves privadas de la wallet permanecen en el dispositivo o agente que firma; nunca se envían a esta API.", "Appelez depuis votre serveur ou agent. Les requêtes directes depuis le navigateur d’autres sites sont limitées par la configuration CORS actuelle. Le catalogue ne nécessite pas de clé API. Les clés privées du wallet restent sur l’appareil ou l’agent signataire ; ne les envoyez jamais à cette API.", "Rufe die API von deinem Backend oder Agenten auf. Direkte Browser-Anfragen anderer Websites sind durch die aktuelle CORS-Konfiguration eingeschränkt. Der Katalog benötigt keinen API-Schlüssel. Private Wallet-Schlüssel bleiben auf dem signierenden Gerät oder Agenten und werden nie an diese API gesendet."], "apiTopupNote": ["For a top-up, query topup-plans on the original completed purchase. Create a new order with kind: \"topup\", parent_id and the original country, plus X-Parent-Token containing the original recovery token. Give the top-up its own UUID and recovery token.", "Para recargar, consulta topup-plans del pedido original completado. Crea un pedido nuevo con kind: \"topup\", parent_id y el país original, más X-Parent-Token con el token de recuperación original. La recarga debe tener su propio UUID y token.", "Pour recharger, consultez topup-plans sur l’achat initial terminé. Créez une nouvelle commande avec kind: \"topup\", parent_id et le pays initial, plus X-Parent-Token contenant le jeton initial. La recharge doit avoir son propre UUID et son propre jeton.", "Frage für Aufladungen topup-plans der abgeschlossenen ursprünglichen Bestellung ab. Erstelle eine neue Bestellung mit kind: \"topup\", parent_id, dem ursprünglichen Land und X-Parent-Token mit dem ursprünglichen Token. Die Aufladung benötigt eine eigene UUID und einen eigenen Token."], "apiLimits": ["429: wait for Retry-After. 410: quote expired. 409: order conflict or action not ready. 503: store or supplier unavailable. A 202 alone does not mean delivery is complete.", "429: espera Retry-After. 410: cotización caducada. 409: conflicto de pedido o acción aún no disponible. 503: tienda o proveedor no disponible. Un 202 por sí solo no indica que la entrega esté completada.", "429 : attendez Retry-After. 410 : devis expiré. 409 : conflit ou action indisponible. 503 : boutique ou fournisseur indisponible. Un 202 seul ne signifie pas que la livraison est terminée.", "429: Retry-After abwarten. 410: Angebot abgelaufen. 409: Bestellkonflikt oder Aktion noch nicht verfügbar. 503: Shop oder Anbieter nicht verfügbar. 202 allein bestätigt keine abgeschlossene Lieferung."]});
 var langs = ["en", "es", "fr", "de"];
 
 // ../../../tmp/ce-src/checkout.mjs
@@ -35566,6 +35568,7 @@ async function translate() {
   serviceStatus(serviceMessage);
   countryOptions();
   renderLegal();
+  if ($("api-guide").open) renderApiGuide();
   if (cfg) {
     if (plansLoading) $("plans").replaceChildren(node("p", t("loading")));
     else if (plansFailed) showPlansError();
@@ -35577,6 +35580,11 @@ async function translate() {
 function walletLabel() {
   $("wallet").textContent = connecting ? t("walletConnecting") : address ? t("disconnect") + " " + address.slice(0, 4) + "…" + address.slice(-4) : t("connect");
   $("wallet").disabled = busy || connecting;
+  const display = $("account-choices");
+  display.replaceChildren();
+  if (address) {
+    display.append(node("p", t("connectedAccount"), "muted"), node("div", address, "order-id"));
+  }
 }
 function showPlansError() {
   const box = node("div", undefined, "catalog-error");
@@ -35679,14 +35687,11 @@ async function connect() {
     if ((cfg?.mode === "testnet" ? "testnet" : "mainnet") !== mode) throw Error(t("invalidNetwork"));
     const valid = [...new Set(Array.isArray(accounts) ? accounts.filter(a => esm_default.isValidAddress(a)) : [])];
     if (!valid.length) throw Error(t("noAccount"));
+    // Use the account explicitly authorized in the extension; no second picker.
+    // Lute returns a list, without a separate active-account field.
+    if (valid.length !== 1) throw Error(t("walletManyAccounts"));
+    address = valid[0];
     walletStatus("");
-    const choices = $("account-choices");
-    choices.replaceChildren(node("p", t("chooseAccount")));
-    for (const a of valid) choices.append(action(a.slice(0, 8) + "…" + a.slice(-6), () => {
-      address = a;
-      walletLabel();
-      choices.replaceChildren(node("span", a, "order-id"));
-    }));
   } catch (e) {
     walletStatus(Object.keys(phrases).find(k => phrases[k].includes(e.message)) || "walletRejected");
   } finally {
@@ -35931,8 +35936,159 @@ async function loadStore() {
   }
   if (cfg) await Promise.all([loadPlans(), renderOrders()]);
 }
+// Public API guide. Its interactive example only makes read-only GET requests.
+var apiGuideRequest;
+function apiSnippets(country) {
+  const origin = base || location.origin;
+  return {
+    curl: `curl --fail-with-body --max-time 60 '${origin}/api/config'\n\ncurl --fail-with-body --max-time 60 '${origin}/api/plans?country=${country}'`,
+    catalog: `// Node.js 18+ · save as catalog.mjs, then: node catalog.mjs\nconst api = ${JSON.stringify(origin)};\nconst country = ${JSON.stringify(country)};\n\nasync function read(path) {\n  const response = await fetch(api + path, {\n    signal: AbortSignal.timeout(60000)\n  });\n  if (!response.ok) throw new Error('HTTP ' + response.status);\n  return response.json();\n}\n\nconst config = await read('/api/config');\nconsole.log('Countries:', config.countries);\nif (!config.countries.includes(country)) {\n  throw new Error('Country is not enabled');\n}\nconst catalog = await read('/api/plans?country=' + country);\nconsole.table(catalog.items.map(({ plan, pricing }) => ({\n  plan_id: plan.id,\n  GB: plan.volume_bytes / 1073741824,\n  days: plan.duration_days,\n  USDC: pricing.total_usdc\n})));`,
+    quote: `// Node.js 18+ · call this function from your application.\n// Persist { id, recoveryToken, request } BEFORE calling.\n// id: crypto.randomUUID(); token: randomBytes(32).toString('base64')\n// request: { kind: 'purchase', country: '${country}', plan_id,\n//            compatible_device, terms_accepted }\n// Both confirmations must come from the actual customer.\nasync function createQuote({ id, recoveryToken, request }) {\n  if (request.compatible_device !== true || request.terms_accepted !== true) {\n    throw new Error('Customer confirmation required');\n  }\n  const response = await fetch(${JSON.stringify(origin + '/api/orders')}, {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json',\n      'Idempotency-Key': id,\n      'X-Recovery-Token': recoveryToken\n    },\n    body: JSON.stringify(request),\n    signal: AbortSignal.timeout(60000)\n  });\n  const quote = await response.json();\n  if (response.status !== 402) {\n    throw new Error(quote.detail || 'Recover the existing order: HTTP ' + response.status);\n  }\n  const raw = response.headers.get('PAYMENT-REQUIRED');\n  if (!raw) throw new Error('Missing payment requirements');\n  const challenge = JSON.parse(Buffer.from(raw, 'base64').toString('utf8'));\n  return { quote, challenge }; // No payment has been signed or sent.\n}`,
+    pay: `// Node.js 18+ · requires an already validated and signed x402 payload.\n// Persist signedPayload and its transaction ID BEFORE calling.\n// This function does not create a signature or verify the receipt.\nasync function submitPayment({ id, recoveryToken, signedPayload }) {\n  const response = await fetch(${JSON.stringify(origin + '/api/pay')}, {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json',\n      'Authorization': 'Bearer ' + recoveryToken,\n      'PAYMENT-SIGNATURE': Buffer.from(JSON.stringify(signedPayload)).toString('base64')\n    },\n    body: JSON.stringify({ order_id: id }),\n    signal: AbortSignal.timeout(60000)\n  });\n  const order = await response.json();\n  if (![200, 202].includes(response.status)) {\n    throw new Error(order.detail || 'HTTP ' + response.status);\n  }\n  return {\n    order,\n    paymentResponse: response.headers.get('PAYMENT-RESPONSE'),\n    retryAfter: response.headers.get('Retry-After')\n  }; // Check status and verify the receipt before using delivery.\n}`
+  };
+}
+function apiCodeBlock(label, code, key) {
+  const box = node('div', undefined, 'api-code-block');
+  const bar = node('div', undefined, 'api-code-bar');
+  const pre = node('pre');
+  const content = node('code', code);
+  content.dataset.apiCode = key;
+  pre.tabIndex = 0;
+  pre.append(content);
+  const copy = node('button', t('apiCopy'), 'button outline');
+  copy.type = 'button';
+  copy.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(content.textContent);
+      copy.textContent = t('apiCopied');
+      setTimeout(() => { copy.textContent = t('apiCopy'); }, 1800);
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(content);
+      const selection = window.getSelection();
+      selection.removeAllRanges(); selection.addRange(range);
+      notify(t('apiSelectCopy'));
+    }
+  };
+  bar.append(node('span', label), copy);
+  box.append(bar, pre);
+  return box;
+}
+function renderApiGuide() {
+  if (apiGuideRequest) apiGuideRequest.abort();
+  const body = $('api-copy');
+  body.replaceChildren();
+  const baseBox = node('div', undefined, 'api-base');
+  baseBox.append(node('span', t('apiBase'), 'small muted'), node('code', base || location.origin), node('span', t('apiPublic'), 'api-badge'));
+  body.append(baseBox);
+  const section = (title, ...keys) => {
+    const s = node('section', undefined, 'api-section');
+    s.append(node('h3', t(title)));
+    for (const key of keys) s.append(node('p', t(key), 'muted'));
+    body.append(s); return s;
+  };
+  const quick = section('apiQuick', 'apiQuickText');
+  const controls = node('div', undefined, 'api-controls');
+  const label = node('label', t('apiCountry'));
+  const input = node('input');
+  input.id = 'api-country'; input.type = 'text'; input.maxLength = 2;
+  input.value = $('country').value || cfg?.countries?.[0] || 'ES';
+  input.autocomplete = 'off'; input.spellcheck = false;
+  label.append(input);
+  const run = node('button', t('apiRun'), 'button primary');
+  run.id = 'api-run'; run.type = 'button';
+  const output = node('pre', t('apiIdle'), 'api-output');
+  output.id = 'api-result'; output.tabIndex = 0;
+  output.setAttribute('aria-live', 'polite');
+  controls.append(label, run); quick.append(controls, output);
+  const snippets = apiSnippets(input.value);
+  quick.append(apiCodeBlock('cURL', snippets.curl, 'curl'), apiCodeBlock('JavaScript · Node.js 18+', snippets.catalog, 'catalog'));
+  const quote = section('apiQuote', 'apiQuoteText', 'apiIdentity');
+  quote.append(apiCodeBlock('JavaScript · createQuote()', snippets.quote, 'quote'));
+  const payment = section('apiPay', 'apiValidate', 'apiSign');
+  payment.append(apiCodeBlock('JavaScript · submitPayment()', snippets.pay, 'pay'), node('p', t('apiDelivery'), 'muted'), node('p', t('apiReceipt'), 'muted'));
+  const endpoints = section('apiEndpoints');
+  const list = node('dl', undefined, 'api-endpoints');
+  for (const [method, path, key] of [
+    ['GET', '/api/config', 'apiConfig'],
+    ['GET', '/api/plans?country=ES', 'apiCatalog'],
+    ['POST', '/api/orders', 'apiNewOrder'],
+    ['POST', '/api/pay', 'apiPayment'],
+    ['GET', '/api/orders/{id}', 'apiOrder'],
+    ['POST', '/api/orders/{id}/resume', 'apiResume'],
+    ['GET', '/api/orders/{id}/qr', 'apiQr'],
+    ['GET', '/api/orders/{id}/usage', 'apiUsage'],
+    ['GET', '/api/orders/{id}/topup-plans', 'apiTopups'],
+    ['GET', '/.well-known/cryptoesim-key.json', 'apiKey']
+  ]) {
+    const item = node('div'); const term = node('dt');
+    term.append(node('span', method, 'api-method'), node('code', path));
+    item.append(term, node('dd', t(key))); list.append(item);
+  }
+  endpoints.append(list);
+  section('apiIntegration', 'apiAuth', 'apiCors', 'apiTopupNote', 'apiLimits');
+  input.oninput = () => {
+    if (apiGuideRequest) apiGuideRequest.abort();
+    input.value = input.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 2);
+    const valid = /^[A-Z]{2}$/.test(input.value);
+    run.disabled = !valid;
+    output.textContent = t('apiIdle');
+    if (!valid) return;
+    const next = apiSnippets(input.value);
+    for (const e of body.querySelectorAll('[data-api-code]')) e.textContent = next[e.dataset.apiCode];
+  };
+  run.onclick = async () => {
+    if (!/^[A-Z]{2}$/.test(input.value)) { output.textContent = t('apiBadCountry'); return; }
+    if (apiGuideRequest) apiGuideRequest.abort();
+    const controller = new AbortController(); apiGuideRequest = controller;
+    const timeout = setTimeout(() => controller.abort(), 60000);
+    run.disabled = true; input.disabled = true;
+    run.textContent = t('apiRunning'); output.textContent = t('apiRunning');
+    try {
+      const response = await fetch(api('/api/plans?country=' + encodeURIComponent(input.value)), {redirect: 'error', signal: controller.signal});
+      const value = await response.json();
+      if (!response.ok) throw Error('HTTP ' + response.status + (typeof value.detail === 'string' ? ': ' + value.detail : ''));
+      if (!Array.isArray(value.items)) throw Error(t('apiRequestError'));
+      output.textContent = JSON.stringify({country: input.value, simulation: value.simulation, total: value.items.length, showing: Math.min(8, value.items.length), items: value.items.slice(0, 8).map(({plan, pricing}) => ({plan_id: plan.id, GB: plan.volume_bytes / 1073741824, days: plan.duration_days, USDC: pricing.total_usdc}))}, null, 2);
+    } catch (e) {
+      output.textContent = e.name === 'AbortError' ? t('apiRequestError') : e.message;
+    } finally {
+      clearTimeout(timeout);
+      if (apiGuideRequest === controller) apiGuideRequest = null;
+      run.disabled = false; input.disabled = false; run.textContent = t('apiRun');
+    }
+  };
+}
+function setupApiGuide() {
+  const dialog = $('api-guide');
+  const open = () => {
+    if (dialog.open) return;
+    renderApiGuide(); dialog.showModal(); dialog.scrollTop = 0;
+  };
+  $('open-api').onclick = (event) => {
+    event.preventDefault();
+    history.replaceState(null, '', location.pathname + location.search + '#api');
+    open();
+  };
+  const close = () => {
+    if (location.hash === '#api') history.replaceState(null, '', location.pathname + location.search);
+    dialog.close();
+  };
+  $('close-api').onclick = close;
+  dialog.addEventListener('cancel', (event) => { event.preventDefault(); close(); });
+  dialog.addEventListener('close', () => {
+    if (!dialog.open && apiGuideRequest) apiGuideRequest.abort();
+  });
+  window.addEventListener('hashchange', () => {
+    if (location.hash === '#api') open();
+    else if (dialog.open) dialog.close();
+  });
+  if (location.hash === '#api') open();
+}
+
 async function init() {
   // These controls must work even while the API is unavailable or waking up.
+  setupApiGuide();
   $("wallet").onclick = () => connect().catch(error);
   $("country").onchange = loadPlans;
   $("buy").onclick = purchase;
