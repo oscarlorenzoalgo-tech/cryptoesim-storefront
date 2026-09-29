@@ -86,3 +86,36 @@ nav .nav-api:hover { background:#342026; }
 .wallet-algo-notice{margin:11px 0;padding:10px 12px;border:1px solid var(--red);border-left:3px solid var(--red);border-radius:3px;background:#301318;color:#ff7b88}
 .wallet-algo-notice>strong{display:block;font-size:11px;font-weight:800;letter-spacing:.45px;line-height:1.4}
 .wallet-algo-notice .algo-minimum{display:block;margin-top:3px;font-size:21px;font-weight:800;line-height:1.25;letter-spacing:-.3px}
+
+/* Compact introduction with the purchase message as the main heading. */
+.hero{min-height:0;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:28px;padding:28px 0 30px}
+.hero .eyebrow{margin:0 0 10px}
+.hero h1{max-width:740px;font-size:clamp(28px,3vw,38px);font-weight:800;line-height:1.15;letter-spacing:-1px;margin:0 0 12px}
+.hero .intro{max-width:580px;font-size:16px;line-height:1.55;margin:0 0 18px}
+.hero .hero-notes{margin-top:14px}
+.hero .signal-art{height:250px}
+.hero .r1{width:180px;height:180px}
+.hero .r2{width:250px;height:250px}
+.hero .r3{width:320px;height:320px}
+.hero .sim-card{width:138px;height:200px;padding:17px;border-radius:11px 35px 11px 11px;transform:rotate(12deg);box-shadow:0 20px 45px #0006}
+.hero .sim-card>span{font-size:8px;letter-spacing:1.1px}
+.hero .sim-card svg{width:42px;height:35px}
+.hero .sim-card strong{font-size:16px;letter-spacing:-.5px}
+.hero .sim-card small{font-size:6px;letter-spacing:.6px}
+.hero .art-label{bottom:0;font-size:8px;letter-spacing:2px}
+@media(max-width:900px){
+ .hero{grid-template-columns:minmax(0,1.5fr) minmax(0,.5fr);gap:16px}
+ .hero .sim-card{transform:rotate(8deg) scale(.9)}
+}
+@media(max-width:650px){
+ .hero{grid-template-columns:minmax(0,1fr);gap:12px;padding:22px 0 20px}
+ .hero h1{font-size:29px;letter-spacing:-.6px}
+ .hero .intro{font-size:15px;margin-bottom:15px}
+ .hero .hero-notes{margin-top:12px;font-size:14px}
+ .hero .signal-art{height:165px}
+ .hero .sim-card{transform:rotate(10deg) scale(.65)}
+ .hero .r1{width:130px;height:130px}
+ .hero .r2{width:190px;height:190px}
+ .hero .r3{width:250px;height:250px}
+ .hero .art-label{font-size:7px}
+}
