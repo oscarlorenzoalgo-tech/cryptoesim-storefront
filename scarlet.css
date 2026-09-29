@@ -119,3 +119,7 @@ nav .nav-api:hover { background:#342026; }
  .hero .r3{width:250px;height:250px}
  .hero .art-label{font-size:7px}
 }
+
+.order-payment-status{margin:18px 0;padding:15px 18px;border:1px solid #326752;border-left:4px solid #65dbad;border-radius:3px;background:#10291f;color:#a8f3d5}
+.order-payment-status strong{display:block;font-size:18px;line-height:1.4}
+.order-payment-status p{margin:8px 0 0;font-size:14px;line-height:1.55}
