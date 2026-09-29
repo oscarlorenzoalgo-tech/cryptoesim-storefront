@@ -7,3 +7,33 @@
 .hero>div{min-width:0}.hero h1{font-size:clamp(42px,4.5vw,64px)}.order,.plan,.destination-box{min-width:0}@media(max-width:650px){.hero h1{font-size:44px}.hero{min-height:0}.order-actions .button{white-space:normal;overflow-wrap:anywhere;max-width:100%}}
 
 .service-state{display:block;margin-top:12px;font-size:13px;font-weight:400;letter-spacing:normal;color:var(--muted)}.service-state .button{display:block;margin-top:10px;padding:9px 18px}#wallet-status{line-height:1.6;overflow-wrap:anywhere;color:#ffc4ca}#wallet-status:empty{display:none}.catalog-error{grid-column:1/-1}select:disabled{opacity:.7}#legal-copy a{color:#ffc4ca;overflow-wrap:anywhere}
+
+/* Equal dimensions for the destination and wallet steps. */
+.choice-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+.choice-row > .destination-box,
+.choice-row > .wallet-box {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+.choice-row > .destination-box {
+  padding: 18px 22px;
+  border: 1px solid transparent;
+}
+.choice-row .destination {
+  width: 100%;
+  max-width: none;
+}
+.choice-row #account-choices .button {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 650px) {
+  .choice-row { grid-template-columns: minmax(0, 1fr); }
+  .choice-row > .destination-box,
+  .choice-row > .wallet-box { padding: 16px 18px; }
+}
