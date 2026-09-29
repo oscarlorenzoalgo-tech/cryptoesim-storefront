@@ -123,3 +123,13 @@ nav .nav-api:hover { background:#342026; }
 .order-payment-status{margin:18px 0;padding:15px 18px;border:1px solid #326752;border-left:4px solid #65dbad;border-radius:3px;background:#10291f;color:#a8f3d5}
 .order-payment-status strong{display:block;font-size:18px;line-height:1.4}
 .order-payment-status p{margin:8px 0 0;font-size:14px;line-height:1.55}
+
+.repeat-purchase-note{margin:18px 0;padding:12px 14px;border-left:3px solid var(--red);background:#2b191e;color:#f5c8ce;font-size:13px;line-height:1.55}
+
+/* Delivery status: distinguish received payment from a ready installation. */
+.issuance-estimate{display:block;margin-top:10px;font-size:12px;line-height:1.5;opacity:.82}
+.order-payment-status.delivery-attention{border-color:#ff735d;background:rgba(255,86,63,.08)}
+.delivery-diagnostics{margin-top:12px;font-size:12px;overflow-wrap:anywhere}
+.delivery-diagnostics summary{cursor:pointer;font-weight:700}
+.delivery-diagnostics p{font-size:12px!important}
+.delivery-diagnostics code{font-size:12px}
