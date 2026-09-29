@@ -76,3 +76,15 @@ nav .nav-api:hover { background:#342026; }
   .api-base { padding:15px; }
   .api-controls .button { padding:12px 15px; }
 }
+
+/* Keep actionable wallet requirements visible on the pending order. */
+.toast{white-space:pre-line;max-height:70dvh;overflow:auto}
+.order-problem{border-left:3px solid var(--red);padding:2px 16px;margin-top:18px;background:#321923}
+.order-problem p{font-size:13px;line-height:1.6}
+
+/* Visible before and after connecting the wallet. */
+.wallet-algo-notice{margin:16px 0;padding:15px 16px;border:1px solid var(--red);border-left:4px solid var(--red);border-radius:3px;background:#301318;color:#ff7b88}
+.wallet-algo-notice>strong{display:block;font-size:12px;font-weight:800;letter-spacing:.65px;line-height:1.5}
+.wallet-algo-notice .algo-minimum{display:block;margin:5px 0 8px;font-size:clamp(23px,2.4vw,29px);font-weight:800;line-height:1.2;letter-spacing:-.5px}
+.wallet-box .wallet-algo-notice p{margin:7px 0 0;font-size:13px;line-height:1.55}
+.wallet-box .wallet-algo-notice .algo-extra{font-size:12px;color:#ffabb4}
