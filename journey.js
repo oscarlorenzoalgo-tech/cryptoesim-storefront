@@ -35322,6 +35322,7 @@ var phrases = {
   failed: ["Request failed. Please try again or contact the seller.", "La solicitud ha fallado. Reintenta o contacta con el vendedor.", "La demande a \xE9chou\xE9. R\xE9essayez ou contactez le vendeur.", "Anfrage fehlgeschlagen. Versuche es erneut oder kontaktiere den Verk\xE4ufer."],
   apiMissing: ["Set the API address in store-settings.js before publishing.", "Configura la direcci\xF3n de la API en store-settings.js antes de publicar.", "Configurez l\u2019adresse API dans store-settings.js avant publication.", "Trage vor der Ver\xF6ffentlichung die API-Adresse in store-settings.js ein."]
 };
+Object.assign(phrases, {"loadingStore": ["Loading destinations…", "Cargando destinos…", "Chargement des destinations…", "Reiseziele werden geladen…"], "wakingStore": ["Connecting to the store. The first visit may take a minute…", "Conectando con la tienda. La primera visita puede tardar un minuto…", "Connexion à la boutique. La première visite peut prendre une minute…", "Verbindung zum Shop. Der erste Aufruf kann eine Minute dauern…"], "storeUnavailable": ["We could not load the store. Please retry in a moment.", "No se ha podido cargar la tienda. Reintenta en unos instantes.", "Impossible de charger la boutique. Réessayez dans un instant.", "Der Shop konnte nicht geladen werden. Bitte versuche es gleich erneut."], "retry": ["Retry", "Reintentar", "Réessayer", "Erneut versuchen"], "walletOpening": ["Approve the connection in the Lute extension.", "Autoriza la conexión en la extensión de Lute.", "Autorisez la connexion dans l’extension Lute.", "Bestätige die Verbindung in der Lute-Erweiterung."], "walletConnecting": ["Connecting…", "Conectando…", "Connexion…", "Verbindung wird hergestellt…"], "walletUnavailable": ["Lute is not detected in this tab. Enable the extension for this website, unlock it and reload the page. Use Get Lute if it is not installed.", "No se detecta Lute en esta pestaña. Activa la extensión para esta web, desbloquéala y recarga la página. Usa Conseguir Lute si no está instalada.", "Lute n’est pas détecté dans cet onglet. Activez l’extension pour ce site, déverrouillez-la et rechargez la page. Utilisez Obtenir Lute si elle n’est pas installée.", "Lute wurde in diesem Tab nicht erkannt. Erlaube die Erweiterung für diese Website, entsperre sie und lade die Seite neu. Nutze Lute herunterladen, falls sie nicht installiert ist."], "walletTimeout": ["Lute did not respond. Open and unlock the extension, then reconnect.", "Lute no ha respondido. Abre y desbloquea la extensión y vuelve a conectar.", "Lute n’a pas répondu. Ouvrez et déverrouillez l’extension, puis reconnectez-vous.", "Lute hat nicht geantwortet. Öffne und entsperre die Erweiterung und verbinde sie erneut."], "walletRejected": ["Connection was not approved. Try again in Lute.", "No se ha autorizado la conexión. Vuelve a intentarlo en Lute.", "La connexion n’a pas été autorisée. Réessayez dans Lute.", "Die Verbindung wurde nicht bestätigt. Versuche es in Lute erneut."]});
 var langs = ["en", "es", "fr", "de"];
 
 // ../../../tmp/ce-src/checkout.mjs
@@ -35442,7 +35443,8 @@ function checkWalletFunds(account, asset, amount, fee, role = "payer") {
 // ../../../tmp/ce-src/journey-source.mjs
 globalThis.Buffer = import_buffer.Buffer;
 var $ = (id) => document.getElementById(id);
-var lang = localStorage.getItem("cryptoesim-language") || "en";
+var lang = "en";
+try { lang = localStorage.getItem("cryptoesim-language") || "en"; } catch {}
 if (!langs.includes(lang)) lang = "en";
 var t = (key) => phrases[key]?.[langs.indexOf(lang)] || key;
 var cfg;
@@ -35451,6 +35453,13 @@ var address;
 var selected;
 var parentState;
 var busy = false;
+var connecting = false;
+var configLoading = false;
+var serviceMessage = "loadingStore";
+var walletMessage = "";
+var planRequest = 0;
+var plansLoading = false;
+var plansFailed = false;
 var items = [];
 var storageKey = "cryptoesim:orders:v1";
 var states = [];
@@ -35519,6 +35528,13 @@ function action(text, fn) {
   return b;
 }
 function countryOptions() {
+  if (!cfg) {
+    const option = node("option", t(configLoading ? "loadingStore" : "storeUnavailable"));
+    option.value = "";
+    $("country").replaceChildren(option);
+    $("country").disabled = true;
+    return;
+  }
   const chosen = $("country").value;
   $("country").replaceChildren();
   for (const c of cfg.countries) {
@@ -35527,36 +35543,69 @@ function countryOptions() {
     $("country").append(op);
   }
   if (cfg.countries.includes(chosen)) $("country").value = chosen;
+  $("country").disabled = busy;
+}
+function serviceStatus(key) {
+  serviceMessage = key;
+  $("service-state").classList.toggle("hidden", !key);
+  $("service-message").textContent = key ? t(key) : "";
+  $("retry-store").classList.toggle("hidden", configLoading || !key);
+  $("retry-store").disabled = configLoading;
+}
+function walletStatus(key) {
+  walletMessage = key;
+  $("wallet-status").textContent = key ? t(key) : "";
 }
 async function translate() {
   document.documentElement.lang = lang;
   for (const e of document.querySelectorAll("[data-i18n]")) e.textContent = t(e.dataset.i18n);
   $("hero-title").innerHTML = t("hero");
-  for (const e of document.querySelectorAll("[data-lang]")) {
-    e.setAttribute("aria-pressed", String(e.dataset.lang === lang));
-  }
+  for (const e of document.querySelectorAll("[data-lang]")) e.setAttribute("aria-pressed", String(e.dataset.lang === lang));
   walletLabel();
+  walletStatus(walletMessage);
+  serviceStatus(serviceMessage);
+  countryOptions();
+  renderLegal();
   if (cfg) {
-    countryOptions();
-    renderPlans(items);
+    if (plansLoading) $("plans").replaceChildren(node("p", t("loading")));
+    else if (plansFailed) showPlansError();
+    else renderPlans(items);
     if (selected) select(selected, false);
     await renderOrders();
-    renderLegal();
-  }
+  } else $("orders").replaceChildren(node("p", t("empty"), "empty"));
 }
 function walletLabel() {
-  $("wallet").textContent = address ? t("disconnect") + " " + address.slice(0, 4) + "\u2026" + address.slice(-4) : t("connect");
+  $("wallet").textContent = connecting ? t("walletConnecting") : address ? t("disconnect") + " " + address.slice(0, 4) + "…" + address.slice(-4) : t("connect");
+  $("wallet").disabled = busy || connecting;
+}
+function showPlansError() {
+  const box = node("div", undefined, "catalog-error");
+  box.append(node("p", t("failed"), "error"), action(t("retry"), loadPlans));
+  $("plans").replaceChildren(box);
 }
 async function loadPlans() {
+  if (!cfg || busy) return;
+  const request = ++planRequest;
+  const country = $("country").value;
   parentState = null;
   selected = null;
+  items = [];
+  plansLoading = true;
+  plansFailed = false;
   $("checkout").classList.add("hidden");
   $("plans").replaceChildren(node("p", t("loading")));
   try {
-    items = (await json("/api/plans?country=" + $("country").value)).items;
+    const result = await json("/api/plans?country=" + encodeURIComponent(country));
+    if (request !== planRequest) return;
+    if (!Array.isArray(result.items)) throw Error(t("failed"));
+    items = result.items;
     renderPlans(items);
-  } catch (e) {
-    $("plans").replaceChildren(node("p", t("failed"), "error"));
+  } catch {
+    if (request !== planRequest) return;
+    plansFailed = true;
+    showPlansError();
+  } finally {
+    if (request === planRequest) plansLoading = false;
   }
 }
 function renderPlans(plans) {
@@ -35603,24 +35652,47 @@ function select(item, scroll = true) {
   }
 }
 async function connect() {
+  if (busy || connecting) return;
   if (address) {
     address = null;
     $("account-choices").replaceChildren();
+    walletStatus("");
     walletLabel();
     return;
   }
-  lute ||= new LuteConnect("CryptoEsim");
-  const accounts = await lute.connect(cfg.mode === "testnet" ? "testnet-v1.0" : "mainnet-v1.0");
-  if (!accounts.length) throw Error(t("noAccount"));
-  const choices = $("account-choices");
-  choices.replaceChildren(node("p", t("chooseAccount")));
-  for (const a of accounts) {
-    if (!esm_default.isValidAddress(a)) continue;
-    choices.append(action(a.slice(0, 8) + "\u2026" + a.slice(-6), () => {
+  if (!window.lute) {
+    walletStatus("walletUnavailable");
+    return;
+  }
+  connecting = true;
+  walletStatus("walletOpening");
+  walletLabel();
+  let timer;
+  const mode = cfg?.mode === "testnet" ? "testnet" : "mainnet";
+  try {
+    lute ||= new LuteConnect("CryptoEsim");
+    // Invoke from this user click, before any asynchronous network request.
+    const response = lute.connect(mode + "-v1.0");
+    const accounts = await Promise.race([response, new Promise((_, reject) => {
+      timer = setTimeout(() => reject(Error(t("walletTimeout"))), 60000);
+    })]);
+    if ((cfg?.mode === "testnet" ? "testnet" : "mainnet") !== mode) throw Error(t("invalidNetwork"));
+    const valid = [...new Set(Array.isArray(accounts) ? accounts.filter(a => esm_default.isValidAddress(a)) : [])];
+    if (!valid.length) throw Error(t("noAccount"));
+    walletStatus("");
+    const choices = $("account-choices");
+    choices.replaceChildren(node("p", t("chooseAccount")));
+    for (const a of valid) choices.append(action(a.slice(0, 8) + "…" + a.slice(-6), () => {
       address = a;
       walletLabel();
       choices.replaceChildren(node("span", a, "order-id"));
     }));
+  } catch (e) {
+    walletStatus(Object.keys(phrases).find(k => phrases[k].includes(e.message)) || "walletRejected");
+  } finally {
+    clearTimeout(timer);
+    connecting = false;
+    walletLabel();
   }
 }
 function requestSignature(tx) {
@@ -35674,7 +35746,8 @@ async function browserPayload(challenge, state) {
 function setBusy(value) {
   busy = value;
   $("buy").disabled = value;
-  $("wallet").disabled = value;
+  walletLabel();
+  $("country").disabled = value || !cfg;
   for (const b of document.querySelectorAll("[data-lang]")) b.disabled = value;
 }
 async function purchase() {
@@ -35804,26 +35877,67 @@ async function renderOrders() {
   }
 }
 function renderLegal() {
-  $("legal-copy").replaceChildren(node("p", cfg.merchant_name + (cfg.support_email ? " \xB7 " + cfg.support_email : "")), ...["legal1", "legal2", "legal3"].map((k) => node("p", t(k))));
+  const merchant = cfg?.merchant_name || "CryptoEsim";
+  const contact = node("p", merchant);
+  if (cfg?.support_email) {
+    contact.append(document.createTextNode(" · "));
+    const link = node("a", cfg.support_email);
+    link.href = "mailto:" + cfg.support_email;
+    contact.append(link);
+  }
+  $("legal-copy").replaceChildren(contact, ...["legal1", "legal2", "legal3"].map(k => node("p", t(k))));
+}
+async function loadStore() {
+  if (configLoading || busy) return;
+  configLoading = true;
+  serviceStatus("loadingStore");
+  countryOptions();
+  const slow = setTimeout(() => serviceStatus("wakingStore"), 8000);
+  try {
+    if (!base) throw Error(t("apiMissing"));
+    let next;
+    // Only the public, read-only configuration request is retried automatically.
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        const response = await fetch(api("/api/config"), {redirect: "error", cache: "no-store", signal: AbortSignal.timeout(20000)});
+        if (!response.ok) throw Error("HTTP " + response.status);
+        next = await response.json();
+        break;
+      } catch (e) {
+        if (attempt === 3) throw e;
+        serviceStatus("wakingStore");
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+    }
+    if (new URL(next.public_url).origin !== new URL(base).origin || !["demo", "testnet", "mainnet"].includes(next.mode) || !Array.isArray(next.countries) || !next.countries.length || next.countries.some(c => !/^[A-Z]{2}$/.test(c))) throw Error(t("apiMissing"));
+    if ((cfg?.mode === "testnet") !== (next.mode === "testnet")) {
+      address = null;
+      $("account-choices").replaceChildren();
+      walletLabel();
+    }
+    cfg = next;
+    $("merchant").textContent = cfg.merchant_name + (cfg.support_email ? " · " + cfg.support_email : "");
+    countryOptions();
+    renderLegal();
+    serviceStatus("");
+  } catch {
+    serviceStatus("storeUnavailable");
+    countryOptions();
+  } finally {
+    clearTimeout(slow);
+    configLoading = false;
+    serviceStatus(serviceMessage);
+    if (!cfg) countryOptions();
+  }
+  if (cfg) await Promise.all([loadPlans(), renderOrders()]);
 }
 async function init() {
-  await translate();
-  for (const b of document.querySelectorAll("[data-lang]")) b.onclick = async () => {
-    if (busy) return;
-    lang = b.dataset.lang;
-    localStorage.setItem("cryptoesim-language", lang);
-    await translate();
-  };
-  if (!base) throw Error(t("apiMissing"));
-  cfg = await json("/api/config");
-  if (new URL(cfg.public_url).origin !== new URL(base).origin) throw Error(t("apiMissing"));
-  $("merchant").textContent = cfg.merchant_name + (cfg.support_email ? " \xB7 " + cfg.support_email : "");
-  countryOptions();
-  renderLegal();
+  // These controls must work even while the API is unavailable or waking up.
   $("wallet").onclick = () => connect().catch(error);
   $("country").onchange = loadPlans;
   $("buy").onclick = purchase;
-  $("open-terms").onclick = $("footer-terms").onclick = () => $("legal").showModal();
+  $("retry-store").onclick = () => loadStore().catch(error);
+  $("open-terms").onclick = $("footer-terms").onclick = () => { renderLegal(); $("legal").showModal(); };
   $("close-terms").onclick = () => $("legal").close();
   $("check-device").onclick = () => $("device-check").showModal();
   $("close-device").onclick = () => $("device-check").close();
@@ -35834,21 +35948,32 @@ async function init() {
     $("compatible").checked = true;
     $("device-check").close();
   };
+  for (const b of document.querySelectorAll("[data-lang]")) b.onclick = async () => {
+    if (busy || connecting) return;
+    lang = b.dataset.lang;
+    try { localStorage.setItem("cryptoesim-language", lang); } catch {}
+    await translate();
+  };
+  // Recovery is a support utility, hidden from the normal storefront.
+  $("recovery-control").classList.toggle("hidden", new URLSearchParams(location.search).get("recover") !== "1");
   $("restore").onchange = async (ev) => {
     try {
+      if (!cfg) throw Error(t("storeUnavailable"));
       const f = ev.target.files[0];
       if (!f || f.size > 1e6) throw Error(t("importInvalid"));
       const s = JSON.parse(await f.text());
       if (!s.id || !s.recoveryToken || !s.request || s.baseUrl !== cfg.public_url || s.mode !== cfg.mode || s.trustedKey?.key_id !== cfg.signing_key.key_id) throw Error(t("importInvalid"));
+      // Authenticate the private recovery token before accepting the backup.
+      const recovered = await json("/api/orders/" + encodeURIComponent(s.id), {headers: auth(s)});
+      if (recovered.order_id !== s.id) throw Error(t("importInvalid"));
       save(s);
       await renderOrders();
       notify(t("imported"));
-    } catch {
-      notify(t("importInvalid"));
-    }
+    } catch (e) { error(e); }
     ev.target.value = "";
   };
-  await Promise.all([loadPlans(), renderOrders()]);
+  await translate();
+  await loadStore();
 }
 init().catch(error);
 /*! Bundled license information:

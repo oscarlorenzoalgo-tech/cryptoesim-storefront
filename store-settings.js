@@ -1,3 +1,5 @@
-// Public API origin only. Never put secrets here.
-// Local use: leave empty. Render: replace with your API service HTTPS URL.
-window.CRYPTOESIM_API = "https://cryptoesim-engine.onrender.com";
+// Public API origin only. Never put AccessCode or private keys in this file.
+// Local preview uses its local server. Published storefront uses the real API.
+window.CRYPTOESIM_API = ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname)
+  ? location.origin
+  : "https://cryptoesim-engine.onrender.com";
