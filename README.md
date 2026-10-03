@@ -1,4 +1,5 @@
 # CryptoEsim — Storefront
+WEB URL: https://crypto-esim.info/
 
 **Travel connectivity, paid with USDC on Algorand.**
 
